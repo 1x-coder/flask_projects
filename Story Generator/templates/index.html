@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.jpg" type="image/png"> 
+
+    <title>Lyra</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    
+    <div class="max-w-md bg-white p-8 rounded shadow-md">
+        <h1 class="text-3xl font-bold mb-4">Lyra: Chronicles of Imagination</h1>
+        <p class="mb-4">{{ story }}</p>
+        <form action="/generate" method="post">
+            <div class="mb-4">
+                <label for="character" class="block">Character:</label>
+                <input type="text" id="character" name="character" class="border border-gray-300 rounded px-4 py-2 w-full" value="{{ character }}">
+            </div>
+            <div class="mb-4">
+                <label for="setting" class="block">Setting:</label>
+                <input type="text" id="setting" name="setting" class="border border-gray-300 rounded px-4 py-2 w-full" value="{{ setting }}">
+            </div>
+            <div class="mb-4">
+                <label for="problem" class="block">Problem:</label>
+                <input type="text" id="problem" name="problem" class="border border-gray-300 rounded px-4 py-2 w-full" value="{{ problem }}">
+            </div>
+            <div class="mb-4">
+                <label for="action" class="block">Action:</label>
+                <input type="text" id="action" name="action" class="border border-gray-300 rounded px-4 py-2 w-full" value="{{ action }}">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Generate Custom Story</button>
+        </form>
+        <form action="/" method="get" class="mt-4">
+            <button type="submit" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Generate Random Story</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+topic: pond
+haiku: <div class="haiku"><div class="line-1">cold pond</div><div class="line-2">frog leaps in</div><div class="line-3">water's sound</div></div>
+##
+topic: monkey
+haiku: <div class="haiku"><div class="line-1">the first cold shower</div><div class="line-2">even the monkey seems to want</div><div class="line-3">a little coat of straw</div></div>
+##
+topic: banana
+haiku: <div class="haiku"><div class="line-1">a yellow treat</div><div class="line-2">brightening my day</div><div class="line-3">sweet banana bliss</div></div>
+##
+topic: contact lenses
+haiku: <div class="haiku"><div class="line-1">tiny windows</div><div class="line-2">invisible to all</div><div class="line-3">clear sight in my eyes</div></div>
+##
+topic: batman
+haiku: <div class="haiku"><div class="line-1">dark knight's cape</div><div class="line-2">soaring the city night</div><div class="line-3">saving the helpless ones</div></div>
+##
+topic: william wallace
+haiku: <div class="haiku"><div class="line-1">Braveheart with courage</div><div class="line-2">Scotland's hero of truth</div><div class="line-3">William Wallace stands tall</div></div>
+##

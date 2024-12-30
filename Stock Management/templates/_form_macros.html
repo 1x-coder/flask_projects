@@ -1,0 +1,66 @@
+{% macro render_field(field) %}
+<div class="mb-3">
+    <label for="{{ field.name }}" class="visually-hidden">{{ field.label.text }}</label>
+    {{ field(class_='form-control', **kwargs)|safe }}
+    {% if field.description %}
+    <div class="form-text">{{ field.description }}</div>
+    {% endif %}
+    {% if field.errors %}
+    <ul class="list-unstyled">
+        {% for error in field.errors %}
+        <li class="text-danger">{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_submit_btn(btn) %}
+{{ btn(class_='btn btn-primary', **kwargs)| safe}}
+{% endmacro %}
+
+
+{% macro render_field_with_value(field, data) %}
+<div class="form-floating">
+    {{ field(class_='form-control', value=data)|safe }}
+    <label for="{{ field.name }}">{{ field.label.text }}</label>
+    <ul class="list-unstyled">
+        {% for error in field.errors %}
+        <li class="text-danger">{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
+
+
+{% macro render_select_field(field) %}
+<div class="mb-3">
+    <select class="form-control" id="{{ field.name }}" name="{{ field.name }}" {% if field.flags.required %}required{% endif%}>
+        <option disabled selected value>{{ field.label.text }}</option>
+        
+        {% for choice in field.choices %}
+        <option value="{{ choice[0] }}">{{ choice[1] }}</option>      
+        {% endfor %}
+    </select>
+</div>
+{% endmacro%}
+
+{% macro render_select_field_with_value(field, data) %}
+<div class="form-floating">
+    <select class="form-control" id="{{ field.name }}" name="{{ field.name }}">        
+        {% for choice in field.choices %}
+        {% if choice[1] == data %}
+        <option value="{{ choice[0] }}" selected>{{ choice[1] }}</option>
+        {% else %}
+        <option value="{{ choice[0] }}">{{ choice[1] }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <label for="{{ field.name }}">{{ field.label.text }}</label>
+    <ul class="list-unstyled">
+        {% for error in field.errors %}
+        <li class="text-danger">{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro%}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2023 election app</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <main>
+        <div class="home-div">
+            <p>2023 election app</p>
+            <div>
+                <a href="https://github.com/h4em" target="_blank">
+                    <img src="static/img/github-logo.png" alt="github">
+                </a>
+                <a href="https://www.linkedin.com/in/hubertmichalski/" target="_blank">
+                    <img src="static/img/linkedin-logo.png" alt="linkedin">
+                </a>
+            </div>
+            <div class="spacer"></div>
+            <img class="scroll-gif" src="static/img/scroll-down.gif">
+        </div>
+        
+
+        <h2>About</h2>
+        <p> 
+            This app allows you to explore detailed distribution of votes from the 2023 Polish Parliamentary election across various locations.
+            Made with the official governmental data available @<a href="https://wybory.gov.pl/sejmsenat2023" target="_blank">wybory.gov.pl/sejmsenat2023</a>.
+            If you wish to learn more visit <a href="https://github.com/h4em/2023-election-app" target="_blank">the project's repo</a>. Use the searchbar to lookup a place :).
+        </p>
+       
+        <h2>Notes</h2>
+        <p>
+           Some things worth mentioning:
+           <ul>
+                <li>Data from <span style="font-weight: 600;">abroad</span> / <span style="font-weight: 600;">ships</span> was <span style="font-weight: 600;">excluded</span>.</li>    
+                <li>Consider opting for broader categories such as <span style="font-weight: 600;">'City' and above</span> in the searchbar dropdown for most reliable results.</li>
+                <li>The 'Address' category works for different formats, like place names (e.g., 'Szkola Podstawowa nr. xxx'), streets, cities, and post codes.</li>
+           </ul> 
+        <p>
+        
+        <h2>App</h2>
+        <div class="app-div">
+            <div style="position: relative; width: 100%;">
+                <div class="search-div">            
+                    <img src="static/img/search-icon.png">
+                    <input type="text" class="searchbar" placeholder="Search...">
+                    <select id="category-dropdown" class="form-select" name="category">
+                        <option value="1">Address</option>
+                        <option value="2">City</option>
+                        <option value="3">Gmina</option>
+                        <option value="4">Powiat</option>
+                        <option value="5">Wojewodztwo</option>
+                    </select>
+                </div>
+                <div class="search-hints"></div>
+            </div>
+
+            <div id="map"></div>
+            
+            <div class="results-div">
+                <p class="results-label">Results for: <span class="result-label-span"></span></p>  
+                <div>
+                    <div class="legend-div"></div>
+                    <div class="charts-div">
+                        <div><canvas class="bar-chart"></canvas></div>
+                        <div><canvas class="doughnut-chart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div></div>
+    </main>
+    <footer>&copy <span></span> Hubert Michalski</footer>
+    <script type="module" src="../static/js/script.js"></script>
+    <script type="module" src="../static/js/legend.js"></script>
+    <script type="module" src="../static/js/charts.js"></script>
+    <script type="module" src="../static/js/map.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Event Management Contact!</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/contact" class="active">Contact</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/events">Events</a></li>
+            {% if username %}<li><a href="/account" class="right">Hey {{ username }}! / Account Settings</a></li>{% endif %}
+            {% if username %}<li><a href="/logout" class="right">Logout</a></li>{% endif %}
+        </ul>
+        {% if info %}
+        <div class="info">
+            <p style="font-size:32px;"><h3><strong>Information</strong></h3><p>{{ info }}</p></p>
+        </div>
+        {% endif %}
+        <p style="font-size: 32px;">Contact the developers.</p>
+        <p>If you have any queries or suggestions, you can contact the developers by simply emailing eventmanagementproj@gmail.com or filling up this form!</p>
+        <form action="/contact" method="post">
+            <input type="text" placeholder="Username/Name" name="username" value="{{request.form.username }}"><br>
+            <input type="email" placeholder="Email" name="email" value="{{request.form.email }}"><br>
+            <textarea name="query" placeholder="Your query" value="{{request.form.query }}"></textarea><br>
+            <input class="btn btn-default" type="submit" value="Contact Us">
+        </form>
+    </body>
+</html>

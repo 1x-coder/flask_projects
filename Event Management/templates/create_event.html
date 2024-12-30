@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Event Management Event Creation!</title>
+        <<link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/events"class="active">Events</a></li>
+            {% if username %}<li><a href="/account" class="right">Hey {{ username }}! / Account Settings</a></li>{% endif %}
+            {% if username %}<li><a href="/logout" class="right">Logout</a></li>{% endif %}
+        </ul>
+        {% if error %}
+        <div class="error">
+            <p style="font-size:32px;"><h3><strong>Error</strong></h3><p>{{ error }}</p></p>
+        </div>
+        {% endif %}
+        {% if info %}
+        <div class="info">
+            <p style="font-size:32px;"><h3><strong>Information</strong></h3><p>{{ info }}</p></p>
+        </div>
+        {% endif %}
+        <p style="font-size: 32px;">Create a new event here.</p>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="text" placeholder="Event Name" name="name" value="{{request.form.name }}"><br>
+            <textarea name="description" placeholder="Event Description" value="{{request.form.description }}"></textarea><br>
+            <input class="btn btn-default" type="submit" value="Create Event" name='button'>
+        </form>
+    </body>
+</html>

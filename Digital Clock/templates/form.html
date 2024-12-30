@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block body%}
+<form class="forms" name="passdata" action="." method="post">
+    <label class="label-name">Name of your City:</label>
+    <input type="text" name="name">
+</form><br>
+<h1 class="display-4 heading">Kochi Clock</h1>
+<div class="jumbotron">
+
+    <h2 class="time-align"><span id="time"></span></h2>
+    <!-- <p class="lead">This is a simple Javascript project on real time clock.</p> -->
+    <hr class="my-4 bg-primary">
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="day-align"><span id="day"></span></h1>
+        </div>
+        <div class="col-md-4">
+            <h1 class="temp-align"><span id="temp">{{ item }}C</span></h1>
+        </div>
+
+        <div class="col-md-4">
+            <h1 class="date-align"><span id="date"></span></h1>
+        </div>
+    </div>
+
+</div>
+{% endblock%}

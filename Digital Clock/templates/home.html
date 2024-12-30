@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block body%}
+<div class="row">
+    <button class="btn btn-outline-primary"><a href="form">Go back</a></button>
+    <h1 class="display-4 heading city">{{name}} Clock</h1>
+</div>
+<div class="jumbotron">
+
+    <h2 class="time-align"><span id="time"></span></h2>
+    <!-- <p class="lead">This is a simple Javascript project on real time clock.</p> -->
+    <hr class="my-4 bg-primary">
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="day-align"><span id="day"></span></h1>
+        </div>
+        <div class="col-md-4">
+            <h1 class="temp-align"><span id="temp">{{ temp }}°C</span></h1>
+        </div>
+
+        <div class="col-md-4">
+            <h1 class="date-align"><span id="date"></span></h1>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h1 class="humid-align"><span id="humid">Humidity:{{ humidity }}</span></h1>
+    </div>
+    <div class="col-md-4">
+        <h1 class="pressure-align"><span id="pressure">Pressure:{{ pressure }}</span></h1>
+    </div>
+    <div class="col-md-4">
+        <h1 class="weather-align"><span id="weather">Weather:{{ weather }}</span></h1>
+    </div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Index Page</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% if articles %}
+        <ol>
+        {% for article in articles %}
+            <li><a href="{{ url_for('get_article', aritlce_id=article.id) }}">article.title - {{ article.id }}</a></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+</body>
+</html>

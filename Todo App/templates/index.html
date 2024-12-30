@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <title>To-Do app</title>
+</head>
+<body>
+    <!-- <input type="text" class="task-title-input">
+    <input type="text" class="task-description-input">
+    <input type="text" class="task-priority-input">
+    <input type="text" class="task-due-input">
+    <input type="text" class="is-recurring-input">
+    <input type="text" class="recurring-frequency-input">
+    <input type="text" class="recurrence-rule-input"> -->
+    
+    <div class="add-task-form">
+        <input type="text" placeholder="Title" class="task-title-input">
+        <br>
+        <input type="text" placeholder="Description" class="task-description-input">
+        <br>
+        <button class="add-task-btn">Add Task</button>
+    </div>
+
+    {% macro subtask(subtasks) -%}
+        {% for item in subtasks %}
+        <div class="task" data-task-id={{item["task_id"]}}>
+            <div class="task-title">{{item["task_title"]}}</div>
+            {% if not item["task_description"] == None %}
+            <div class="task-description">{{item["task_description"]}}</div>
+            {% endif %}
+            {% if "subtasks" in item %}
+            {{ subtask(item["subtasks"]) }}
+            {% endif %}
+        </div>
+        {% endfor %}
+    {%- endmacro %}
+
+    {% for item in data %}
+    <div class="task" data-task-id={{item["task_id"]}}>
+        <div class="task-title">{{item["task_title"]}}</div>
+        {% if not item["task_description"] == None %}
+        <div class="task-description">{{item["task_description"]}}</div>
+        {% endif %}
+        {% if "subtasks" in item %}
+        {{ subtask(item["subtasks"]) }}
+        {% endif %}
+    </div>
+    {% endfor %}
+    <script src="static/scripts/index.js"></script>
+</body>
+</html>

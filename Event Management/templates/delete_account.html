@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Event Management Account Deletion!</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/events">Events</a></li>
+            {% if username %}<li><a href="/account" class="active" class="right">Hey {{ username }}! / Account Settings</a></li>{% endif %}
+            {% if username %}<li><a href="/logout" class="right">Logout</a></li>{% endif %}
+        </ul>
+        {% if error %}
+        <div class="error">
+            <p style="font-size:32px;"><h3><strong>Error</strong></h3><p>{{ error }}</p></p>
+        </div>
+        {% endif %}
+        {% if success %}
+        <div class="success">
+            <p style="font-size:32px;"><h3><strong>Success</strong></h3><p>{{ success }}</p></p>
+        </div>
+        {% endif %}
+        {% if info %}
+        <div class="info">
+            <p style="font-size:32px;"><h3><strong>Information</strong></h3><p>{{ info }}</p></p>
+        </div>
+        {% endif %}
+        <p style="font-size: 32px;">Delete your account here.</p>
+        <form action="" method="post">
+            <img src="/static/avatar.png" width="190px"></br>
+            <input type="password" name="password" placeholder="Password" value= {{request.form.password}}></br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" value = {{request.form.confirmPassword}}><br>
+            <input type="submit" name="submit" placeholder="Submit">
+        </form>
+    </body>
+</html>

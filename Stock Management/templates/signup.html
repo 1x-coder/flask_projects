@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% from '_form_macros.html' import render_field %}
+{% from '_form_macros.html' import render_submit_btn %}
+
+{% block body %}
+<section class="form-backdrop d-flex flex-column align-items-center justify-content-center min-vh-100 py-5">
+    <div class="row mb-3">
+        <a href="{{ url_for('index') }}" class="text-decoration-none">
+            <h1 class="brand-text">
+                <span>Stock</span>
+                <span>MGMT</span>
+            </h1>
+        </a>
+    </div>
+    <div class="row wrapper-glassmorphism">
+        <div class="col">
+            <div class="form-navigation">
+                <a href="{{ url_for('user.register') }}" class="form-navigation-link active">Register</a>
+                <a href="{{ url_for('user.login') }}" class="form-navigation-link">Login</a>
+            </div>
+
+            <form action="{{ url_for('user.register') }}" method="POST" class="text-white">
+                {{ form.csrf_token }}
+                <div class="mb-3">
+                    <label for="{{ form.name.name }}">{{ form.name.label.text }}</label>
+                    {{ form.name(class='form-control')}}
+                    <ul class="list-unstyled">
+                        {% for error in form.name.errors %}
+                        <li class="text-danger">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.business_name.name }}">{{ form.business_name.label.text }}</label>
+                    {{ form.business_name(class='form-control') }}
+                    <ul class="list-unstyled">
+                        {% for error in form.business_name.errors %}
+                        <li class="text-danger">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.email.name }}">{{ form.email.label.text }}</label>
+                    {{ form.email (class='form-control')}}
+                    <ul class="list-unstyled">
+                        {% for error in form.email.errors %}
+                        <li class="text-danger">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.password.name }}">{{ form.password.label.text }}</label>
+                    {{ form.password (class='form-control')}}
+                    <ul class="list-unstyled">
+                        {% for error in form.password.errors %}
+                        <li class="text-danger">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.retype_password.name }}">{{ form.retype_password.label.text }}</label>
+                    {{ form.retype_password (class='form-control')}}
+                    <ul class="list-unstyled">
+                        {% for error in form.retype_password.errors %}
+                        <li class="text-danger">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {{ render_submit_btn(form.submit) }}
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
